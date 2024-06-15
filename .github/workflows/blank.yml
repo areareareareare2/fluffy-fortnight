@@ -1,0 +1,23 @@
+name: Create PR to Repo B with Curl
+
+on:
+  workflow_dispatch:  # This allows you to trigger the workflow manually
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Pull Request Between Branches
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_BRANCH: "main"  # Change to your branch name
+          BASE_BRANCH: "main"  # Change to your target branch name
+          REPO_B_OWNER: "acm-ambitious"         # Change to Repo B's owner
+          REPO_B_NAME: "fluffy-fortnight"            # Change to Repo B's name
+        run: |
+          curl \
+            -X POST \
+            -H "Authorization: token ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${REPO_B_OWNER}/${REPO_B_NAME}/pulls" \
+            -d '{"title": "New Pull Request", "body": "Description of the PR.", "head": "${{ github.repository_owner }}:${HEAD_BRANCH}", "base": "${BASE_BRANCH}", "maintainer_can_modify": true}'
