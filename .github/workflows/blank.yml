@@ -12,7 +12,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEAD_BRANCH: "main"  # Change to your branch name
           BASE_BRANCH: "main"  # Change to your target branch name
-          REPO_B_OWNER: "acm-ambitious"         # Change to Repo B's owner
+          REPO_B_OWNER: "acme-ambitious"         # Change to Repo B's owner
           REPO_B_NAME: "fluffy-fortnight"            # Change to Repo B's name
         run: |
           curl \
