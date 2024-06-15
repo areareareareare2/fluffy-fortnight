@@ -19,5 +19,5 @@ jobs:
             -X POST \
             -H "Authorization: token ${GITHUB_TOKEN}" \
             -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/areareareareare2/fluffy-fortnight/pulls" \
-            -d '{"title": "New Pull Request", "body": "Description of the PR.", "head": "acme-ambitious:main", "base": "main", "maintainer_can_modify": true}'
+            "https://api.github.com/repos/acme-ambitious/fluffy-fortnight/pulls" \
+            -d '{"title": "New Pull Request", "body": "Description of the PR.", "head": "areareareareare2:main", "base": "main", "maintainer_can_modify": true}'
